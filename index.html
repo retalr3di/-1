@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الصبيحي - السلط</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('https://g.top4top.io/p_33696rezb1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* الظلال على الصورة */
+            z-index: -1;
+        }
+        /* شريط التنقل الجانبي */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            right: -250px; /* الشريط يبدأ مخفيًا */
+            background-color: rgba(0, 0, 0, 0.7); /* شفافية الشريط */
+            overflow-x: hidden;
+            transition: 0.5s; /* تأثير الإظهار */
+            padding-top: 60px;
+            z-index: 9999;
+        }
+        .sidebar a {
+            color: white;
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .sidebar .close-btn {
+            position: absolute;
+            top: 0;
+            left: 10px;
+            font-size: 36px;
+            color: white;
+            cursor: pointer;
+        }
+        .menu-toggle {
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+            background: none;
+            border: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+        .title {
+            font-size: 60px;
+            font-weight: bold;
+            color: white;
+            position: relative;
+        }
+        .title span {
+            color: #d4a017;
+        }
+        .underline {
+            width: 50px;
+            height: 5px;
+            background: #d4a017;
+            margin-top: 10px;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+        }
+        /* الفوتر */
+        .footer {
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            bottom: 20px;
+            color: white;
+        }
+        .footer p {
+            margin: 5px;
+            font-size: 18px;
+        }
+        .visitor-count {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        // دالة لفتح وإغلاق الشريط الجانبي
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.right = sidebar.style.right === '0px' ? '-250px' : '0px';
+        }
+
+        // تحميل العداد من localStorage أو تعيينه إلى 0
+        function updateVisitorCount() {
+            let visitorCount = localStorage.getItem('visitorCount');
+            if (!visitorCount) {
+                visitorCount = 1;
+            } else {
+                visitorCount = parseInt(visitorCount) + 1;
+            }
+            localStorage.setItem('visitorCount', visitorCount);
+            document.getElementById('visitor-count').textContent = `عدد الزوار: ${visitorCount}`;
+        }
+
+        // تحديث العداد عند تحميل الصفحة
+        window.onload = function() {
+            updateVisitorCount();
+        };
+    </script>
+</head>
+<body>
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+    <div class="sidebar">
+        <a href="C:\Users\user\Desktop\flutter_application_4\web\subahi\الصبيحي موقع\p1.html">الصبيحي</a>
+         <a href="C:\Users\user\Desktop\flutter_application_4\web\p2.html">سكان</a>
+        <a href="C:\Users\user\Desktop\flutter_application_4\web\p3.html">رائدات من المجتمع المحلي</a>
+        <a href="C:\Users\user\Desktop\flutter_application_4\web\p4.html">أماكن في الصبيحي</a>
+        <a href="C:\Users\user\Desktop\flutter_application_4\web\p7.html">المدارس</a>
+        <a href="C:\Users\user\Desktop\flutter_application_4\web\P8.HTML">كنوز الصبيحي الطبيعية</a>
+        <a href="C:\Users\user\Desktop\flutter_application_4\web\p9.html">رحاب المساجد</a>
+        <a href="C:\Users\user\Desktop\flutter_application_4\web\p11.html">الصبيحي بين الماضي والحاضر</a>
+        <a href="C:\Users\user\Desktop\flutter_application_4\web\p33.html">الرعاية الصحية</a>
+        <a href="C:\Users\user\Desktop\flutter_application_4\web\p22.html">بلدية الصبيحي</a>
+        <a href="C:\Users\user\Desktop\flutter_application_4\web\p44.html">المحلات التجارية</a>
+        <span class="close-btn" onclick="toggleSidebar()">×</span>
+    </div>
+    <div class="content">
+        <div class="title">عارضة <span>عباد</span></div>
+        <div class="underline"></div>
+    </div>
+
+    <!-- Footer Section with Visitor Count and Name -->
+    <div class="footer">
+        <div class="visitor-count" id="visitor-count">عدد الزوار: 0</div>
+        <p>     ريتال راضي النعيمات</p>
+    </div>
+</body>
+</html>
